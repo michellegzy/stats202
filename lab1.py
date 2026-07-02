@@ -13,23 +13,23 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # input folder path containing the CSV files
-folder_path = '/Users/michellegee/Desktop/skool/stfd_grad/stats 202 stat learning'
+folder_path = '/path/to/your/file'
 
 # read CSV
 df = pd.read_csv(os.path.join(folder_path, 'Credit.csv'))
 
 # question 1: r^2 between income and education
 r_inc_edu = df['Income'].corr(df['Education'])
-print(f"Q1 | Income vs Education  r = {r_inc_edu:.4f},  r^2 = {r_inc_edu**2:.4f}")
+# print(f"Q1: Income vs Education  r = {r_inc_edu:.4f},  r^2 = {r_inc_edu**2:.4f}")
 
 # question 2: mean and std dev of rating
 rating_mean = df['Rating'].mean()
 rating_std  = df['Rating'].std()
-print(f"Q2 | Rating  mean = {rating_mean:.2f},  std = {rating_std:.2f}")
+# print(f"Q2: Rating  mean = {rating_mean:.2f},  std dev = {rating_std:.2f}")
 
 # question 3: r^2 between limit and age
 r_lim_age = df['Limit'].corr(df['Age'])
-print(f"Q3 | Limit vs Age         r = {r_lim_age:.4f},  r^2 = {r_lim_age**2:.4f}")
+# print(f"Q3: Limit vs Age         r = {r_lim_age:.4f},  r^2 = {r_lim_age**2:.4f}")
 
 # --- figure 1: plots for Q1, Q2, Q3 ---
 fig1, axes1 = plt.subplots(1, 3, figsize=(15, 4))
@@ -50,7 +50,7 @@ axes1[1].axvline(rating_mean - rating_std, color='black', linewidth=1, linestyle
 axes1[1].axvline(rating_mean + rating_std, color='black', linewidth=1, linestyle='--')
 axes1[1].set_xlabel('Rating')
 axes1[1].set_ylabel('Count')
-axes1[1].set_title(f'Q2: Rating distribution\nmean = {rating_mean:.1f},  std = {rating_std:.1f}')
+axes1[1].set_title(f'Q2: Rating distribution\nmean = {rating_mean:.1f},  std dev = {rating_std:.1f}')
 axes1[1].legend(fontsize=8)
 
 # Q3: limit vs age scatter with r² annotation
